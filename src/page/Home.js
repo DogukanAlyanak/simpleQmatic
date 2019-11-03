@@ -12,7 +12,7 @@ class Home extends Component {
                 <Link to = {`addrowscreen`}>Sıra Al Ekranı</Link><br/>
                 <Link to = {`waitrowscreen`}>Bekleyenler</Link><br/>
                 <hr/>
-                <h3>Counter</h3>
+                <h3>Counters</h3>
                 <Link to = {`counter/1`}>Gişe 1 Ekranı</Link><br/>
             </div>
         )

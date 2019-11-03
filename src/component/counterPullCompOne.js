@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import RowConsumer from '../context'
 import axios from 'axios'
+import WaitRowsComp from '../component/WaitRowsComp'
 
 class counterPullCompOne extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            counter: 1
+            counter: 1,
+            nowselectrowforthiscounter: 0
         }
     }
 
@@ -16,7 +18,7 @@ class counterPullCompOne extends Component {
         let res = await axios.get('http://localhost:3004/waitrow')
 
         if (res.data.length === 0) {
-            console.log(alert("Bekleyen Yok"))
+            alert("Bekleyen Yok")
             return
         }
 
@@ -31,7 +33,7 @@ class counterPullCompOne extends Component {
 
         let counter = this.state.counter.toString()
         let id = siraliRes[0].id.toString()        
-        let number = siraliRes[0].number.toString()    
+        let number = siraliRes[0].number.toString()
         
 
         const SelectRow = {
@@ -45,6 +47,10 @@ class counterPullCompOne extends Component {
         dispatch({ type: "ADD_ROW_FINAL", payload: responseFinal.data })
 
         await axios.delete(`http://localhost:3004/waitrow/${id}`);
+
+        this.setState({
+            nowselectrowforthiscounter: number
+        }) 
     }
 
 
@@ -61,6 +67,11 @@ class counterPullCompOne extends Component {
                             >
                                 Sıra Çek
                             </button>
+                            <hr/>
+                            Şu anki Sıra No: {this.state.nowselectrowforthiscounter}
+                            <hr/>
+                            <h5>Bekleyenler</h5>
+                            <WaitRowsComp />
                         </div>
                     )
                 }
