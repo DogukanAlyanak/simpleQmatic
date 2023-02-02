@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Title</title>
+</head>
+
+<style>
+     :root {
+        --grey1: #858585;
+        --green1: #7fbf35;
+        --green2: #038928;
+        --green3: #027029;
+    }
+    
+    body {
+        background-color: #272727;
+        color: white;
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    .main-tbody {
+        color: white;
+    }
+    
+    .main-tbody tr {
+        border: solid #00000000;
+        font-size: 75px;
+        color: var(--green2)!important;
+    }
+    
+    .main-tbody tr td {
+        width: 33.33%;
+        text-align: center;
+        font-weight: 700;
+    }
+</style>
+
+<body>
+
+    <div class="counter-fluid">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <tbody class="main-tbody" id="messages">
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        var messages = document.getElementById('messages');
+
+        socket.on('chat message', function(e) {
+            console.log(e);
+            let sepColor = `#858585`;
+            let item = `<tr><td style="text-align: right;">${e.no}</td><td><svg style="width: 45px;padding-bottom:12px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:${sepColor};}</style><path class="st0" d="M8.1,24L4,20l8-8L4,4l4.1-4L20,12L8.1,24z"/></svg></td><td style="text-align: left;">${e.counter}</td></tr>`;
+
+            messages.innerHTML = item + messages.innerHTML;
+            // window.scrollTo(0, document.body.scrollHeight);
+        });
+    </script>
+</body>
+
+</html>
