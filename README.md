@@ -1,2 +1,2 @@
-This app crating with node.js,
+This app crating with node.js and socket.io,
 this app is simple q-matic
