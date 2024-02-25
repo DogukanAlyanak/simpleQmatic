@@ -3,4 +3,4 @@ this app is simple q-matic
 
 all pages in index/home page.
 
-Version : 1.1.0
+Version : 1.2.0
