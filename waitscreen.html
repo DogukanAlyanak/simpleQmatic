@@ -8,7 +8,7 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Title</title>
+    <title>Q-Matic</title>
 </head>
 
 <style>
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-12">
                 <table class="table table-striped">
-                    <tbody class="main-tbody" id="messages">
+                    <tbody class="main-tbody" id="numbers">
 
                         <tr>
                             <td>&nbsp;</td>
@@ -138,15 +138,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
-        var messages = document.getElementById('messages');
+        var numbers = document.getElementById('numbers');
 
-        socket.on('chat message', function(e) {
+        socket.on('called_numbers', function(e) {
             console.log(e);
             let sepColor = `#858585`;
             let item = `<tr><td style="text-align: right;">${e.no}</td><td><svg style="width: 45px;padding-bottom:12px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:${sepColor};}</style><path class="st0" d="M8.1,24L4,20l8-8L4,4l4.1-4L20,12L8.1,24z"/></svg></td><td style="text-align: left;">${e.counter}</td></tr>`;
 
-            messages.innerHTML = item + messages.innerHTML;
-            // window.scrollTo(0, document.body.scrollHeight);
+            numbers.innerHTML = item + numbers.innerHTML;
         });
     </script>
 </body>

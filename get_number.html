@@ -116,7 +116,7 @@
     .qmatic-button:active {
         background-color: var(--green1);
     }
-
+    
     select:active,
     select:focus,
     .btn:focus,
@@ -130,7 +130,8 @@
 
     <div class="container">
         <div class="row">
-            
+
+
             <div class="col-12 mt-40">
                 <a href="/">
                     <div class="logo">
@@ -139,19 +140,16 @@
                 </a>
             </div>
 
-            <div class="col-12 mt-10">
-                <a href="get_number"
-                type="button" class="btn btn-primary btn-lg call-button qmatic-button">Sıra Alma Ekranı</a>
+            <div class="col-12 pt-4">
+                <label> Sıra Kategorisi :</label>
+                <select id="groupSelect" class="form-select form-select-lg qmatic-select mb-3" aria-label=".form-select-lg example">
+                    <option value="0" selected>Gişe İşlemleri</option>
+                    <option value="1">Müşteri İşlemleri</option>
+                    <option value="2">İdari İşlemleri</option>
+                  </select>
             </div>
-
             <div class="col-12 mt-10">
-                <a href="counter"
-                type="button" class="btn btn-primary btn-lg call-button qmatic-button">Gişe Ekranı</a>
-            </div>
-
-            <div class="col-12 mt-10">
-                <a href="waitscreen"
-                type="button" class="btn btn-primary btn-lg call-button qmatic-button">Bekleme Ekranı</a>
+                <button type="button" class="btn btn-primary btn-lg call-button qmatic-button">Sıra Al</button>
             </div>
 
 
@@ -163,6 +161,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', (e) => {
+            let groupValue = document.getElementById('groupSelect').value;
+            let res = {
+                group: groupValue
+            }
+            socket.emit('add_number', res);
+        });
+    </script>
 </body>
 
 </html>

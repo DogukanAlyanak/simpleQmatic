@@ -8,7 +8,7 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Title</title>
+    <title>Q-Matic</title>
 </head>
 
 <style>
@@ -155,7 +155,7 @@
                 <select id="groupSelect" class="form-select form-select-lg qmatic-select mb-3" aria-label=".form-select-lg example">
                     <option value="0" selected>Gişe İşlemleri</option>
                     <option value="1">Müşteri İşlemleri</option>
-                    <option value="3">İdari İşlemleri</option>
+                    <option value="2">İdari İşlemleri</option>
                   </select>
             </div>
             <div class="col-12 mt-10">
@@ -188,7 +188,7 @@
                 group: groupValue,
                 counter: counterValue
             }
-            socket.emit('chat message', res);
+            socket.emit('call_number', res);
         });
     </script>
 </body>
