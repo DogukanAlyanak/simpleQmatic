@@ -37,19 +37,19 @@ this.state = {
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/view/index.html');
 });
 
 app.get('/waitscreen', (req, res) => {
-    res.sendFile(__dirname + '/waitscreen.html');
+    res.sendFile(__dirname + '/view/waitscreen.html');
 });
 
 app.get('/counter', (req, res) => {
-    res.sendFile(__dirname + '/counter.html');
+    res.sendFile(__dirname + '/view/counter.html');
 });
 
 app.get('/get_number', (req, res) => {
-    res.sendFile(__dirname + '/get_number.html');
+    res.sendFile(__dirname + '/view/get_number.html');
 });
 
 
